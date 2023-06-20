@@ -1,13 +1,16 @@
 import pygame
 import random
 import time
+import os
 
 pygame.init()
 width, height = 800, 600
 window = pygame.display.set_mode((width, height),pygame.RESIZABLE)
 
+dir_path = os.path.dirname(os.path.realpath(__file__))
 
-dvd_image = pygame.transform.scale(pygame.image.load("dvd.png"),(185,85))
+
+dvd_image = pygame.transform.scale(pygame.image.load(f"{dir_path}/dvd.png"),(185,85))
 
 color = (50,50,50)
 
@@ -60,15 +63,15 @@ class logo:
                 print(self.horizontal, self.vertical)
         window.blit(dvd_image,(self.x,self.y))
 
-dvd = logo(50,"chaos")
+dvd = logo(10,"bounce")
 
 class text:
     def __init__(self, size, text):
-        self.font = pygame.font.Font("font.fon",size)
+        self.font = pygame.font.Font(f"{dir_path}/font.fon",size)
         self.text_holder = text
         self.text = self.font.render(text, True, (255,255,255))
     def render(self,x,y):
-        font = pygame.font.Font("font.fon",32)
+        font = pygame.font.Font(f"{dir_path}/font.fon",32)
         text = font.render(self.text_holder, True, (0,0,0))
         window.blit(text,(x + 2,y))
         window.blit(text,(x - 2,y))
@@ -106,10 +109,25 @@ while running:
                 corner.render((pygame.display.Info().current_w / 2) - corner.text.get_height(),(pygame.display.Info().current_h / 2) - corner.text.get_width())
                 pygame.display.update()
                 running = False
+            if event.key == pygame.K_1:
+                dvd.function = "bounce"
+                color = (50,50,50)
+            if event.key == pygame.K_2:
+                dvd.function = "teleport"
+                color = (50,50,50)
+            if event.key == pygame.K_3:
+                dvd.function = "speed"
+                color = (50,50,50)
+            if event.key == pygame.K_4:
+                dvd.function = "chaos"
+            if event.key == pygame.K_5:
+                dvd.function = "obs"
     clock.tick(60)
     window.fill(color)
     corner = text(32, str(corners))
     corner.render(10,10)
+    corner = text(32, dvd.function)
+    corner.render((pygame.display.Info().current_w - corner.text.get_width()) - 10,10)
     dvd.handle()
     pygame.display.update()
 
