@@ -20,8 +20,8 @@ flipped_y = False
 
 class logo:
     def __init__(self,speed,function):
-        self.x = random.randint(1,200)
-        self.y = random.randint(1,200)
+        self.x = random.randint(1,500)
+        self.y = random.randint(1,500)
         self.w = 185
         self.h = 85
         self.horizontal = speed
@@ -122,12 +122,22 @@ while running:
                 dvd.function = "chaos"
             if event.key == pygame.K_5:
                 dvd.function = "obs"
+            if event.key == pygame.K_PLUS:
+                dvd.horizontal += 1
+                dvd.vertical += 1
+            if event.key == pygame.K_MINUS:
+                dvd.horizontal -= 1
+                dvd.vertical -= 1
     clock.tick(60)
     window.fill(color)
     corner = text(32, str(corners))
     corner.render(10,10)
     corner = text(32, dvd.function)
     corner.render((pygame.display.Info().current_w - corner.text.get_width()) - 10,10)
+    corner = text(32, str(dvd.horizontal))
+    if dvd.horizontal < 0:
+        corner = text(32, str(dvd.horizontal * -1))
+    corner.render(10,(pygame.display.Info().current_h - corner.text.get_height()) - 10)
     dvd.handle()
     pygame.display.update()
 
