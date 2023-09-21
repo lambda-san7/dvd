@@ -61,6 +61,7 @@ var dvd = {
 }
 
 function inc_speed(amount){
+    speed.innerHTML = amount
     console.log(dvd.horizontal,dvd.vertical)
     if(dvd.horizontal < 0){
         dvd.horizontal -= amount
@@ -74,6 +75,7 @@ function inc_speed(amount){
     if(dvd.vertical >= 0){
         dvd.vertical += amount
     }
+    
 }
 
 function dec_speed(amount){
@@ -106,6 +108,7 @@ function loop(){
     setTimeout(function(){
         ctx.clearRect(0, 0, 99999, 99999);
         dvd.handle(dvd.x,dvd.y,dvd.w,dvd.h)
+        speed.innerHTML = dvd.horizontal
         loop()
     }, 16);
 }

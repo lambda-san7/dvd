@@ -3,6 +3,7 @@ html {
     font-family: 'Courier New', Courier, monospace;
     color: white;
     overflow: hidden;
+    user-select: none;
 }
 
 canvas {
