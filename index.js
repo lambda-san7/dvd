@@ -6,6 +6,8 @@ var running = true
 canvas = document.getElementById("canvas")
 var ctx = canvas.getContext("2d");
 
+var speed = document.getElementById("speed")
+
 logo = document.getElementById("logo")
 
 width = 1366
@@ -16,8 +18,6 @@ function render(fill=player2.fill){
     ctx.fillRect(player2.x, player2.y, player2.size, player2.size);
     ctx.stroke();
 }
-console.log(window.innerWidth)
-console.log(window.innerHeight)
 
 flipped_x = false
 flipped_y = false
@@ -92,6 +92,11 @@ function dec_speed(amount){
     }
 }
 
+function change_speed(amount){
+    console.log(dvd.horizontal,dvd.vertical)
+    dvd.horizontal = amount
+    dvd.vertical = amount
+}
 
 //////////////////////////
 // LOOP

@@ -7,14 +7,19 @@
         <img id="logo" src="favicon.png">
     </body>
     <head>
-        <script src="index.js"></script>
+        
         <link href="style.css" rel="stylesheet">
         <link href="favicon.png" rel="icon">
         <title>DVD Logo</title>
+        <div class="div">
+            <p align="center" id="speed">speed</p>
+            <div class="button" align="center" onclick="inc_speed(1)">+</div>
+            <input id="amount" type="text" value="1" onchange="change_speed(this.value)">
+            <div class="button" align="center" onclick="dec_speed(1)">-</div>
+        </div>
         <div>
-            <p align="center">speed</p>
-            <button align="center" onclick="inc_speed(1)">+</button>
-            <button align="center" onclick="dec_speed(1)">-</button>
+            <p align="center">stats</p>
         </div>
     </head>
+    <script src="index.js"></script>
 </html>

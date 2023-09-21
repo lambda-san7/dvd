@@ -15,10 +15,10 @@ canvas {
     z-index: 0;
 }
 
-div {
+.div {
     position: absolute;
-    top: 10;
-    left: 10;
+    top: 10px;
+    left: 10px;
     z-index: 1;
     background-color: rgb(50, 50, 50);
     border-radius: 1px;
@@ -26,9 +26,21 @@ div {
     padding: 10px;
 }
 
-button {
+.button {
+    display: inline;
     z-index: 2;
     background-color: rgb(50, 50, 50);
     border-radius: 1px;
     outline: 1px solid white;
+    color: white;
+    padding: 10px;
+}
+
+input {
+    display: inline;
+    z-index: 2;
+    background-color: rgb(50,50,50);
+    border: 1px solid white;
+    color: white;
+    padding: 5px;
 }
